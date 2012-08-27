@@ -1,7 +1,10 @@
 /*
- * 1) Tabela dinâmica
-	a) Construa um programa com um campo de texto e um botão. Esse botão deve adicionar o texto inserido em uma tabela (criar uma linha e adicionar o texto nessa linha).
-	b) Altere o programa para que ele adicione o texto do campo em uma nova linha da tabela toda vez que o botão seja clicado.
+ * 1) Tabela dinï¿½mica
+	a) Construa um programa com um campo de texto e um botï¿½o. 
+	Esse botï¿½o deve adicionar o texto inserido em uma tabela 
+	(criar uma linha e adicionar o texto nessa linha).
+	b) Altere o programa para que ele adicione o texto do campo
+	em uma nova linha da tabela toda vez que o botï¿½o seja clicado.
  */
 
 package com.example.exercicio1;
@@ -20,10 +23,10 @@ import android.widget.TableRow.LayoutParams;
 
 public class PrimeiraTela extends Activity {
 
-	/* Criando o ArrayList que guardará os textos digitados */
+	/* Criando o ArrayList que guardarï¿½ os textos digitados */
     private static ArrayList<String> textos = new ArrayList<String>();
     
-    /* String que passará os dados do campo pro ArrayList */
+    /* String que passarï¿½ os dados do campo pro ArrayList */
     String aux;
 	
     @Override
@@ -31,31 +34,31 @@ public class PrimeiraTela extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.primeira_tela);
 
-        /* Referenciando Campo de Texto, Botão e Tabela do XML */
+        /* Referenciando Campo de Texto, Botï¿½o e Tabela do XML */
         final EditText campoTexto = (EditText) findViewById(R.id.campoTexto);
         Button botao = (Button) findViewById(R.id.botao);
         final TableLayout tabela = (TableLayout) findViewById(R.id.tabela);
 		
-        /* Definindo os parâmetros da tabela em uma variável */
-		final TableRow.LayoutParams parametroTabela = new TableRow.LayoutParams(LayoutParams.FILL_PARENT, 
+        /* Definindo os parï¿½metros da tabela em uma variï¿½vel */
+	final TableRow.LayoutParams parametroTabela = new TableRow.LayoutParams(LayoutParams.FILL_PARENT, 
 				LayoutParams.WRAP_CONTENT);
 
-		/* Definindo as funções do clique do botão */
+		/* Definindo as funï¿½ï¿½es do clique do botï¿½o */
         botao.setOnClickListener(new View.OnClickListener() {
 			
-			@Override
-			public void onClick(View v) {
-				/* aux recebe o conteúdo do campo de texto */				
-				aux = campoTexto.getText().toString();
-				
-				if (aux != null) {
-					/* ArrayList recebe o conteúdo do aux */
+		@Override
+		public void onClick(View v) {
+			/* aux recebe o conteï¿½do do campo de texto */				
+			aux = campoTexto.getText().toString();
+			
+			if (aux != null) {
+				/* ArrayList recebe o conteï¿½do do aux */
 		        	textos.add(aux);
 		        	
-		        	/* Deleta o conteúdo do campo de texto */
+		        	/* Deleta o conteï¿½do do campo de texto */
 		        	campoTexto.setText("");
 		        	
-		        	/* Laço de repetição que vai inserir os dados na tabela */
+		        	/* Laï¿½o de repetiï¿½ï¿½o que vai inserir os dados na tabela */
 		        	for (int i = 0; i < textos.size(); i++) {
 		        		
 		        		/* Criando linha e campo da tabela */
@@ -65,7 +68,7 @@ public class PrimeiraTela extends Activity {
 		        		/* Definindo os parametros de layout da linha */
 		        		linha.setLayoutParams(parametroTabela);
 		        		
-		        		/* Inserindo o conteúdo do ArrayList no TextView */
+		        		/* Inserindo o conteï¿½do do ArrayList no TextView */
 		        		itemTabela.setText(textos.get(i));
 		        		
 		        		/* Limpando o ArrayList */
@@ -77,8 +80,8 @@ public class PrimeiraTela extends Activity {
 		        		/* Inserindo a linha na tabela */
 		        		tabela.addView(linha, parametroTabela);
 		        	}
-		        }
-			}
-		});
+	             	}
+		}
+	});
     }
 }
